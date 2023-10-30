@@ -1,0 +1,2 @@
+Build status: [![Build status](https://ci.appveyor.com/api/projects/status/ooeawcx1movdi7wb?svg=true)](https://ci.appveyor.com/project/KeplerXIII/adv-web-cicd-5)  
+Site link: [Github pages - Trello](https://keplerxiii.github.io/adv_web_cicd_6/)
