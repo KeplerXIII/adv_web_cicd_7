@@ -47,7 +47,7 @@ export class ModalManager {
                 <div class="modal-content">
                     <p>Уверенны, что хотите удалить?</p>
                     <button class="confirm-button">Да</button>
-                    <button class="cancel-button">Отмена</button>
+                    <button class="cancel-button">Нет</button>
                 </div>
             </div>
             `
