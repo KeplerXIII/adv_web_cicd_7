@@ -1,3 +1,7 @@
+import { ModalManager } from './modalManager'
+const modalManager = new ModalManager()
+modalManager.init()
+
 export class TicketManager {
   constructor (taskDiv, tObject) {
     this.taskBoard = taskDiv
@@ -22,8 +26,12 @@ export class TicketManager {
 
     this.ticketRendered.addEventListener('click', (e) => {
       if (!e.target.closest('.noProp')) {
-        this.description.classList.toggle('hide')
+        this.description.classList.toggle('hiden')
       }
+    })
+
+    this.delBtn.addEventListener('click', () => {
+      modalManager.openDeleteModal(this.ticket, this.ticketRendered)
     })
   }
 
@@ -43,7 +51,7 @@ export class TicketManager {
         <button class="edit-button noProp">✏️</button>
       </div>
       <div class="additional-info">
-        <span class="description hide">${description}</span>
+        <span class="description hiden">${description}</span>
       </div>
     </div>
     `
