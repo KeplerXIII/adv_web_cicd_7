@@ -1,125 +1,89 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #31a8cf;
+    font-size: large;
+    background-color: #525759;
+    background-image: url('../../src/imgs/background.jpg');
 }
-
-
-.board {
+.tickets {
     display: flex;
-    justify-content: flex-start;
-    margin: 20px;
-}
-
-.column {
-    width: 300px;
-    background-color: #e0e0e0;
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: 2px 2px 5px #888888;
-    display: inline-flex;
     flex-direction: column;
-	margin-right: 20px;
-	min-width: 250px;
-	height: max-content;
 }
 
-.column h2 {
-    margin: 0;
-	font-size: 16px;
-    padding: 10px;
-    background-color: transparent;
-    border-radius: 5px 5px 0 0;
-    text-align: left;
-}
-
-.task{
-    position: relative;
-    width: 270px;
-    word-wrap: break-word;
-    /* margin: 5px; */
-    padding: 10px;
-    background-color: #ffffff;
-    border: 1px solid #c0c0c0;
+.ticket {
+    display: flex;
+    margin-top: 5px;
+    flex-direction: column;
+    background-color: #88b99a;
+    max-width: 500px;
+    min-width: 490px;
     border-radius: 10px;
-    cursor: pointer;
 }
 
-.dragged {
-    width: 270px;
-    word-wrap: break-word;
-    position: absolute;
-    z-index: 999;
-    pointer-events: none;
-    /* width: fit-content; */
-    /* pointer-events: auto; */
-}
-
-.input-task {
-    resize: none;
-    position: relative;
-    width: 270px;
-    word-wrap: break-word;
-    background-color: #ffffff;
-    border: 1px solid #c0c0c0;
-    border-radius: 10px;
-    cursor: text;
-    margin: 5px;
-    padding: 5px;
-}
-
-.close-button {
-    color: #888888;
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    cursor: pointer;
-    display: none;
-  }
-  
-.close-button {
+.main-info {
     display: block;
-  }
-
-.add-task-button {
-	color: #888888;
-    background: transparent;
-    border: none;
     padding: 10px;
-    text-align: left;
-    width: 100%;
-    cursor: pointer;
+    text-align: center;
 }
 
-.button-apply-container {
-	display: flex;
-    justify-content: flex-start;
+.description {
+    display: inline-flex;
+    width: 330px;
+    padding: 5px;
+    margin-left: 55px;
+    margin-right: 55px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: #bc9090;
 }
 
-.apply-button {
-	margin-right: 5px;
-	border-radius: 5px;
-	background: green;
-	color: white;
+.radio-button {
+    margin-top: 0px;
+    margin-right: 30px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 2px solid #000;
 }
 
-.cancel-button {
-	border-radius: 5px;
-	background: rgb(141, 25, 25);
-	color: white;
+.name {
+    width: 180px;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-right: 30px;
+    text-align: center;
 }
 
-.hidden {
-	display: none;
+.date {
+    margin-right: 30px;
 }
 
-.placeholder {
-    position: relative;
-    width: 100%;
-    height: 20px; 
-    background-color: #f2f2f2;
-    z-index: 0;
-    transition: height 0.3s;
-    color: transparent;
-  }
+
+
+.delete-button,
+.edit-button {
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+    line-height: 0px;
+}
+
+.delete-button {
+    background-color: rgb(172, 57, 57);
+    color: white;
+}
+
+.edit-button {
+    background-color: rgb(77, 77, 79);
+    color: white;
+    margin-left: 10px;
+}
+
+.hide {
+    display: none;
+}
