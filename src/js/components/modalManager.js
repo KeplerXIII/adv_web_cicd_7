@@ -36,7 +36,6 @@ export class ModalManager {
         return
       }
       this.addNew(name.value, description.value)
-      location.reload()
     })
 
     this.closeEditButton.addEventListener('click', (e) => {
@@ -60,7 +59,7 @@ export class ModalManager {
       }
 
       this.editByID(this.id, name.value, description.value)
-      location.reload()
+      this.closeEditModal()
     })
   }
 
@@ -214,6 +213,16 @@ export class ModalManager {
       'POST',
       `${config.host}:${config.port}/?method=createNew&name=${name}&description=${description}`
     )
+
+    document.querySelector('.loader').classList.remove('hiden')
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState !== 4) {
+        return
+      }
+      document.querySelector('.loader').classList.add('hiden')
+      location.reload()
+    }
+
     xhr.send()
   }
 
@@ -223,6 +232,15 @@ export class ModalManager {
       'POST',
       `${config.host}:${config.port}/?method=editByID&id=${id}&name=${name}&description=${description}`
     )
+    document.querySelector('.loader').classList.remove('hiden')
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState !== 4) {
+        return
+      }
+      document.querySelector('.loader').classList.add('hiden')
+      location.reload()
+    }
+
     xhr.send()
   }
 }
