@@ -1,3 +1,5 @@
+import config from '../../../config'
+
 export class ModalManager {
   init () {
     this.renderModal()
@@ -200,7 +202,7 @@ export class ModalManager {
     const xhr = new XMLHttpRequest()
     xhr.open(
       'DELETE',
-      `http://localhost:6060/?method=removeByID&id=${this.ticket.id}`
+      `${config.host}:${config.port}/?method=removeByID&id=${this.ticket.id}`
     )
     xhr.send()
   }
@@ -210,7 +212,7 @@ export class ModalManager {
     const xhr = new XMLHttpRequest()
     xhr.open(
       'POST',
-      `http://localhost:6060/?method=createNew&name=${name}&description=${description}`
+      `${config.host}:${config.port}/?method=createNew&name=${name}&description=${description}`
     )
     xhr.send()
   }
@@ -219,7 +221,7 @@ export class ModalManager {
     const xhr = new XMLHttpRequest()
     xhr.open(
       'POST',
-      `http://localhost:6060/?method=editByID&id=${id}&name=${name}&description=${description}`
+      `${config.host}:${config.port}/?method=editByID&id=${id}&name=${name}&description=${description}`
     )
     xhr.send()
   }

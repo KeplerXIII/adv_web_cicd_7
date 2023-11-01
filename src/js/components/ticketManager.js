@@ -1,4 +1,5 @@
 import { ModalManager } from './modalManager'
+import config from '../../../config'
 const modalManager = new ModalManager()
 modalManager.init()
 
@@ -20,7 +21,7 @@ export class TicketManager {
     this.radioBtn.addEventListener('change', (e) => {
       e.stopPropagation()
       const xhr = new XMLHttpRequest()
-      xhr.open('GET', `http://localhost:6060/?method=switchByID&id=${this.ticket.id}`)
+      xhr.open('GET', `${config.host}:${config.port}/?method=switchByID&id=${this.ticket.id}`)
       xhr.send()
     })
 
@@ -45,7 +46,7 @@ export class TicketManager {
   }
 
   htmlForm () {
-    const { id, name, description, __, created } = this.ticket
+    const { id, name, description, created } = this.ticket
     const htmlRaw = `
     <div class="ticket" id=${id}>
       <div class="main-info">
