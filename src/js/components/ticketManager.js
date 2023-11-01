@@ -33,6 +33,11 @@ export class TicketManager {
     this.delBtn.addEventListener('click', () => {
       modalManager.openDeleteModal(this.ticket, this.ticketRendered)
     })
+
+    this.editBtn.addEventListener('click', (e) => {
+      e.preventDefault()
+      modalManager.openEditModal(this.ticket)
+    })
   }
 
   renderTicket () {
