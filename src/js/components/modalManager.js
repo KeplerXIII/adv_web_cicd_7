@@ -1,4 +1,6 @@
 import config from '../../../config'
+import { TicketManager } from './ticketManager'
+const tickets = document.querySelector('.tickets')
 
 export class ModalManager {
   init () {
@@ -219,8 +221,11 @@ export class ModalManager {
       if (xhr.readyState !== 4) {
         return
       }
+      const tempEl = JSON.parse(xhr.responseText)
+      const ticketManager = new TicketManager(tickets, tempEl)
+      ticketManager.init()
+
       document.querySelector('.loader').classList.add('hiden')
-      location.reload()
     }
 
     xhr.send()
