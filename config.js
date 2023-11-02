@@ -1,6 +1,6 @@
 const config = {
-  host: 'https://tasker-29mr.onrender.com',
-  port: ''
+  host: 'http://localhost:8800/',
+  port: '8800'
 }
 
 export default config

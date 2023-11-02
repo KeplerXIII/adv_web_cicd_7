@@ -176,11 +176,11 @@ export class ModalManager {
 
   openEditModal (ticket, render) {
     this.editModal.style.display = 'block'
-    const { id, name, description } = ticket
+    const { id } = ticket
     this.render = render
     this.id = id
-    this.editableName.value = name
-    this.editableDescription.value = description
+    this.editableName.value = render.querySelector('.name').textContent
+    this.editableDescription.value = render.querySelector('.description').textContent
   }
 
   closeDeleteModal () {
