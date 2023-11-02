@@ -4,16 +4,16 @@ export class ModalManager {
   init () {
     this.renderModal()
 
+    this.addBtn.addEventListener('click', (e) => {
+      this.openAddModal()
+    })
+
     this.closeDeleteButton.addEventListener('click', () => {
       this.closeDeleteModal()
     })
 
     this.confirmDeleteButton.addEventListener('click', () => {
       this.removeByID(this.id)
-    })
-
-    this.addBtn.addEventListener('click', (e) => {
-      this.openAddModal()
     })
 
     this.closeAddButton.addEventListener('click', (e) => {
@@ -57,7 +57,6 @@ export class ModalManager {
         description.setAttribute('placeholder', 'Минимум 10 символов.')
         return
       }
-
       this.editByID(this.id, name.value, description.value)
       this.closeEditModal()
     })
@@ -175,9 +174,10 @@ export class ModalManager {
     this.addModal.style.display = 'block'
   }
 
-  openEditModal (ticket) {
+  openEditModal (ticket, render) {
     this.editModal.style.display = 'block'
     const { id, name, description } = ticket
+    this.render = render
     this.id = id
     this.editableName.value = name
     this.editableDescription.value = description
@@ -195,7 +195,7 @@ export class ModalManager {
     this.editModal.style.display = 'none'
   }
 
-  removeByID (id) {
+  removeByID () {
     this.render.remove()
     this.closeDeleteModal()
     const xhr = new XMLHttpRequest()
@@ -228,6 +228,8 @@ export class ModalManager {
 
   editByID (id, name, description) {
     const xhr = new XMLHttpRequest()
+    const tempName = this.render.querySelector('.name')
+    const tempDesc = this.render.querySelector('.description')
     xhr.open(
       'POST',
       `${config.host}:${config.port}/?method=editByID&id=${id}&name=${name}&description=${description}`
@@ -237,8 +239,9 @@ export class ModalManager {
       if (xhr.readyState !== 4) {
         return
       }
+      tempName.textContent = name
+      tempDesc.textContent = description
       document.querySelector('.loader').classList.add('hiden')
-      location.reload()
     }
 
     xhr.send()

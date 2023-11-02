@@ -37,7 +37,7 @@ export class TicketManager {
 
     this.editBtn.addEventListener('click', (e) => {
       e.preventDefault()
-      modalManager.openEditModal(this.ticket)
+      modalManager.openEditModal(this.ticket, this.ticketRendered)
     })
   }
 
